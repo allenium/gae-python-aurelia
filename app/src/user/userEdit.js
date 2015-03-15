@@ -3,8 +3,9 @@ import {WebAPI} from 'src/service';
 export class User{
   static inject() { return [WebAPI]; }
   constructor(service){
-    this.heading = 'New User';
+    this.heading = 'Edit User';
     this.User = {
+      id: undefined,
       firstName:  undefined,
       lastName:  undefined,
     };
@@ -12,22 +13,16 @@ export class User{
     this.service = service;
   }
 
-  get fullName(){
-    return `${this.User.firstName} ${this.User.lastName}`;
+  activate(params, queryString, routeConfig){
+    console.log(params.id)
   }
 
   save(){
-    this.service.saveUser(this.User).then(result => {
+    this.service.updateUser(this.User).then(result => {
       if (result.isSuccess)
         alert('Success!');
       else
         alert('Error!');
     });
-  }
-}
-
-export class UpperValueConverter {
-  toView(value){
-    return value && value.toUpperCase();
   }
 }

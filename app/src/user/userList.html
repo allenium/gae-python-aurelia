@@ -16,7 +16,7 @@
                     <td>${user.firstName}</td>
                     <td>${user.lastName}</td>
                     <td title="Actions" style="width: 15px;">
-                        <a role="button">
+                        <a role="button" click.delegate="$parent.updateUser(user.id)">
                             <i class="fa fa-edit"></i>
                         </a>
                         <a role="button" click.delegate="$parent.removeUser(user.id)">

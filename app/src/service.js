@@ -17,4 +17,8 @@ export class WebAPI {
     removeUser(data){
         return this.http.post('api/delete', data);
     }
+
+    updateUser(data){
+        return this.http.post('api/update', data);
+    }
 }

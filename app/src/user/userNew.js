@@ -3,7 +3,7 @@ import {WebAPI} from 'src/service';
 export class User{
   static inject() { return [WebAPI]; }
   constructor(service){
-    this.heading = 'User';
+    this.heading = 'New User';
     this.User = {
       firstName: '',
       lastName: ''

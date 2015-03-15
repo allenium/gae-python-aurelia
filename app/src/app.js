@@ -9,7 +9,8 @@ export class App {
       config.title = 'Example App';
       config.map([
         { route: ['','home'],  moduleId: './home/home',      nav: true, title:'Welcome' },
-        { route: 'user/new',        moduleId: './user/user', nav: true, title:'Users Registration'}
+        { route: 'user/new',        moduleId: './user/userNew', nav: true, title:'Users Registration'},
+        { route: 'user/list',        moduleId: './user/userList', nav: true, title:'Users List'}
       ]);
     });
   }

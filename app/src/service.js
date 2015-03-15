@@ -7,7 +7,6 @@ export class WebAPI {
     }
 
     getAllUsers(){
-        console.log('here');
         return this.http.get('api/get');
     }
 

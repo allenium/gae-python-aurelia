@@ -1,0 +1,5 @@
+*.py[co]
+
+# Packages
+jspm_packages
+.idea

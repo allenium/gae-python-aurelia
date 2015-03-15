@@ -1,0 +1,21 @@
+application: anirel 
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+  
+- url: /api/.*
+  script: main.app
+
+- url: (.*)/
+  static_files: app\1/index.html
+  upload: app
+
+- url: (.*)
+  static_files: app\1
+  upload: app

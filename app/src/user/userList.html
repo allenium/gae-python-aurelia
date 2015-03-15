@@ -7,6 +7,7 @@
                     <th>Id</th>
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -14,6 +15,14 @@
                     <td>${user.id}</td>
                     <td>${user.firstName}</td>
                     <td>${user.lastName}</td>
+                    <td title="Actions" style="width: 15px;">
+                        <a role="button">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a role="button" click.delegate="$parent.removeUser(user.id)">
+                            <i class="fa fa-remove"></i>
+                        </a>
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -17,7 +17,7 @@ export class User{
   }
 
   save(){
-    this.service.saveUser(this.User).then(function(result){
+    this.service.saveUser(this.User).then(result => {
       if (result.isSuccess)
         alert('Success!');
       else

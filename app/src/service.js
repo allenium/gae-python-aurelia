@@ -13,4 +13,8 @@ export class WebAPI {
     saveUser(data){
         return this.http.post('api/create', data);
     }
+
+    removeUser(data){
+        return this.http.post('api/delete', data);
+    }
 }

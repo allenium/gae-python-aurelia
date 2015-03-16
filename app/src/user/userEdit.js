@@ -1,8 +1,9 @@
 import {WebAPI} from 'src/service';
+import {Router} from 'aurelia-router';
 
 export class User{
-  static inject() { return [WebAPI]; }
-  constructor(service){
+  static inject() { return [WebAPI, Router]; }
+  constructor(service, route){
     this.heading = 'Edit User';
     this.User = {
       id: undefined,
@@ -10,8 +11,13 @@ export class User{
       lastName:  undefined,
     };
 
+    this.route = route;
     this.service = service;
   }
+
+  back(){
+    this.route.navigate("user");
+  };
 
   activate(params){
     this.service.getUser(params.id).then(result => {

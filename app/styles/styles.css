@@ -44,3 +44,8 @@ section {
 .pictureDetail {
     max-width: 425px;
 }
+
+
+.btn.margin-btn {
+    margin-bottom: 10px !important;
+}

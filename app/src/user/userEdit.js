@@ -17,7 +17,7 @@ export class User{
 
   back(){
     this.route.navigate("user");
-  };
+  }
 
   activate(params){
     this.service.getUser(params.id).then(result => {

@@ -49,3 +49,12 @@ section {
 .btn.margin-btn {
     margin-bottom: 10px !important;
 }
+
+i {
+    cursor: pointer;
+    padding: 2px;
+}
+
+.align-center {
+    text-align: center;
+}

@@ -23,11 +23,11 @@ export class User{
 
   updateUser(userId){
     this.route.navigate("user/edit/" + userId);
-  };
+  }
 
   newUser(userId){
     this.route.navigate("user/new");
-  };
+  }
 
   removeUser(userId){
     this.service.removeUser(userId).then(result => {

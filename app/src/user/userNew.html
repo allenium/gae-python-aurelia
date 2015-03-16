@@ -11,7 +11,7 @@
         <label for="ln">Last Name</label>
         <input type="text" value.bind="User.lastName" class="form-control" id="ln" placeholder="Last Name">
       </div>
-      <div class="form-group">
+      <div class="form-group" show.bind="User.firstName || User.lastName">
         <label>Full Name</label>
         <p class="help-block">${fullName | upper}</p>
       </div>

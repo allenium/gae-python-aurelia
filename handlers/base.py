@@ -29,5 +29,6 @@ class RestHandler(webapp2.RequestHandler):
 
 
   def SendJson(self, r):
+    self.response.headers.add_header("Access-Control-Allow-Origin", "*")
     self.response.headers['content-type'] = 'text/plain'
     self.response.write(json.dumps(r))

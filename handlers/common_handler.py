@@ -12,11 +12,18 @@ from base import RestHandler
 def AsDict(user):
   return {'id': user.key.id(), 'firstName': user.firstName, 'lastName': user.lastName}
 
-class GetHandler(RestHandler):
+class ListHandler(RestHandler):
 
   def get(self):
     users = models.AllUsers()
     r = [ AsDict(user) for user in users ]
+    self.SendJson(r)
+
+class GetHandler(RestHandler):
+
+  def get(self, userId):
+    user = models.FindUser(long(userId))
+    r = AsDict(user)
     self.SendJson(r)
 
 class PutHandler(RestHandler):

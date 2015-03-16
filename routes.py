@@ -4,7 +4,8 @@
 from handlers import *
 
 route_list = [
-	(r'^/api/get', GetHandler),
+	(r'^/api/(\d+)', GetHandler),
+	(r'^/api/list', ListHandler),
 	(r'^/api/create', PostHandler),
 	(r'^/api/update', PutHandler),
 	(r'^/api/delete', DeleteHandler),

@@ -14,7 +14,17 @@ export class User{
   }
 
   activate(params, queryString, routeConfig){
-    console.log(params.id)
+    var userToFind = {
+      id: params.id
+    };
+
+    this.service.getUser(userToFind).then(result => {
+      if (result.isSuccess){
+        this.User = $.parseJSON(result.response);
+      }
+      else
+        alert('Error!');
+    });
   }
 
   save(){

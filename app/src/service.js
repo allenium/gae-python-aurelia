@@ -7,7 +7,7 @@ export class WebAPI {
     }
 
     getAllUsers(){
-        return this.http.get('api/get');
+        return this.http.get('api/list');
     }
 
     saveUser(data){
@@ -20,5 +20,9 @@ export class WebAPI {
 
     updateUser(data){
         return this.http.post('api/update', data);
+    }
+
+    getUser(id){
+        return this.http.get('api/6401356696911872');
     }
 }

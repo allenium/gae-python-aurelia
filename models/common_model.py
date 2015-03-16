@@ -7,6 +7,9 @@ class User(ndb.Model):
 def AllUsers():
   return User.query()
 
+def FindUser(id):
+  return User.get_by_id(id)
+
 def UpdateUser(id, firstName, lastName):
   user = User(id=id, firstName=firstName, lastName=lastName)
   user.put()

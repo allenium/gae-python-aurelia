@@ -6,8 +6,8 @@ export class WebAPI {
         this.http = http;
     }
 
-    getAllUsers(){
-        return this.http.get('api/user');
+    getAllUsers(textSearch){
+        return this.http.get('api/user?textSearch=' + textSearch);
     }
 
     saveUser(data){

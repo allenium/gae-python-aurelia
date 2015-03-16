@@ -3,8 +3,8 @@ import {Router} from 'aurelia-router';
 
 export class User{
 
-  getAll() {
-    this.service.getAllUsers().then(result => {
+  search() {
+    this.service.getAllUsers(this.textSearch).then(result => {
       if (!result.isSuccess)
         alert('Error!');
       else
@@ -16,9 +16,10 @@ export class User{
   constructor(service, route){
     this.heading = 'User List';
     this.Users = [];
+    this.textSearch = '';
     this.service = service;
     this.route = route;
-    this.getAll();
+    this.search();
   }
 
   updateUser(userId){
@@ -33,7 +34,7 @@ export class User{
     this.service.removeUser(userId).then(result => {
       if (result.isSuccess){
         alert('Success!');
-        this.getAll();
+        this.search();
       }
       else
         alert('Error!');

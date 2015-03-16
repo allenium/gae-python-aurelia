@@ -24,7 +24,7 @@ export class User{
   }
 
   save(){
-    this.service.updateUser(this.User).then(result => {
+    this.service.updateUser(this.User.id, this.User).then(result => {
       if (result.isSuccess)
         alert('Success!');
       else

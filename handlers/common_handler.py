@@ -28,9 +28,9 @@ class GetHandler(RestHandler):
 
 class PutHandler(RestHandler):
 
-  def post(self):
+  def post(self, userId):
     r = json.loads(self.request.body)
-    user = models.UpdateUser(r['id'], r['firstName'], r['lastName'])
+    user = models.UpdateUser(long(userId), r['firstName'], r['lastName'])
     r = AsDict(user)
     self.SendJson(r)
 

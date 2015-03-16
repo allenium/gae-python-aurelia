@@ -18,8 +18,8 @@ export class WebAPI {
         return this.http.post('api/delete', data);
     }
 
-    updateUser(data){
-        return this.http.post('api/update', data);
+    updateUser(id, data){
+        return this.http.post('api/update/' + id, data);
     }
 
     getUser(id){

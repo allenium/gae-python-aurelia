@@ -31,8 +31,10 @@ export class User{
 
   save(){
     this.service.updateUser(this.User.id, this.User).then(result => {
-      if (result.isSuccess)
+      if (result.isSuccess) {
         alert('Success!');
+        this.back();
+      }
       else
         alert('Error!');
     });

@@ -16,7 +16,10 @@ def AsDict(user):
 def AsSearchDict(userSearch):
   return {'id': userSearch.doc_id, 'firstName': userSearch.fields[0].value, 'lastName': userSearch.fields[1].value}
 
-def Search(user):
+def GetIndex():
+  return search.Index(name="userIndex")
+
+def CreateDocument(user):
   document = search.Document(
     doc_id = str(user.key.id()),
     fields=[
@@ -24,14 +27,14 @@ def Search(user):
        search.TextField(name='lastName', value=user.lastName),
        ])
 
-  index = search.Index(name="userIndex")
+  index = GetIndex()
   index.put(document)
 
 class UserHandler(RestHandler):
 
   def get(self):
     textSearch = self.request.get('textSearch')
-    index = search.Index(name="userIndex")
+    index = GetIndex()
     results = index.search(textSearch);
     r = [ AsSearchDict(result) for result in results ]
     self.SendJson(r)
@@ -39,7 +42,7 @@ class UserHandler(RestHandler):
   def post(self):
     r = json.loads(self.request.body)
     user = models.InsertUser(r['firstName'], r['lastName'])
-    Search(user)
+    CreateDocument(user)
     r = AsDict(user)
     self.SendJson(r)
 
@@ -53,9 +56,12 @@ class UserParamHandler(RestHandler):
   def put(self, userId):
     r = json.loads(self.request.body)
     user = models.UpdateUser(long(userId), r['firstName'], r['lastName'])
-    Search(user)
+    CreateDocument(user)
     r = AsDict(user)
     self.SendJson(r)
 
   def delete(self, userId):
     models.DeleteUser(long(userId))
+
+    index = GetIndex()
+    index.delete(userId)

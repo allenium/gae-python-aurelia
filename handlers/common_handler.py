@@ -12,29 +12,12 @@ from base import RestHandler
 def AsDict(user):
   return {'id': user.key.id(), 'firstName': user.firstName, 'lastName': user.lastName}
 
-class ListHandler(RestHandler):
+class UserHandler(RestHandler):
 
   def get(self):
     users = models.AllUsers()
     r = [ AsDict(user) for user in users ]
     self.SendJson(r)
-
-class GetHandler(RestHandler):
-
-  def get(self, userId):
-    user = models.FindUser(long(userId))
-    r = AsDict(user)
-    self.SendJson(r)
-
-class PutHandler(RestHandler):
-
-  def post(self, userId):
-    r = json.loads(self.request.body)
-    user = models.UpdateUser(long(userId), r['firstName'], r['lastName'])
-    r = AsDict(user)
-    self.SendJson(r)
-
-class PostHandler(RestHandler):
 
   def post(self):
     r = json.loads(self.request.body)
@@ -42,8 +25,18 @@ class PostHandler(RestHandler):
     r = AsDict(user)
     self.SendJson(r)
 
-class DeleteHandler(RestHandler):
+class UserParamHandler(RestHandler):
 
-  def post(self):
+  def get(self, userId):
+    user = models.FindUser(long(userId))
+    r = AsDict(user)
+    self.SendJson(r)
+
+  def put(self, userId):
     r = json.loads(self.request.body)
-    models.DeleteUser(r['id'])
+    user = models.UpdateUser(long(userId), r['firstName'], r['lastName'])
+    r = AsDict(user)
+    self.SendJson(r)
+
+  def delete(self, userId):
+    models.DeleteUser(long(userId))

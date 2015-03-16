@@ -7,22 +7,22 @@ export class WebAPI {
     }
 
     getAllUsers(){
-        return this.http.get('api/list');
+        return this.http.get('api/user');
     }
 
     saveUser(data){
-        return this.http.post('api/create', data);
+        return this.http.post('api/user', data);
     }
 
-    removeUser(data){
-        return this.http.post('api/delete', data);
+    removeUser(id){
+        return this.http.delete('api/user/' + id);
     }
 
     updateUser(id, data){
-        return this.http.post('api/update/' + id, data);
+        return this.http.put('api/user/' + id, data);
     }
 
     getUser(id){
-        return this.http.get('api/' + id);
+        return this.http.get('api/user/' + id);
     }
 }

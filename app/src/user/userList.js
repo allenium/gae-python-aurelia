@@ -27,11 +27,7 @@ export class User{
   };
 
   removeUser(userId){
-    var userToRemove = {
-      id: userId
-    };
-
-    this.service.removeUser(userToRemove).then(result => {
+    this.service.removeUser(userId).then(result => {
       if (result.isSuccess){
         alert('Success!');
         this.getAll();

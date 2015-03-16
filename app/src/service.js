@@ -23,6 +23,6 @@ export class WebAPI {
     }
 
     getUser(id){
-        return this.http.get('api/6401356696911872');
+        return this.http.get('api/' + id);
     }
 }

@@ -13,12 +13,8 @@ export class User{
     this.service = service;
   }
 
-  activate(params, queryString, routeConfig){
-    var userToFind = {
-      id: params.id
-    };
-
-    this.service.getUser(userToFind).then(result => {
+  activate(params){
+    this.service.getUser(params.id).then(result => {
       if (result.isSuccess){
         this.User = $.parseJSON(result.response);
       }

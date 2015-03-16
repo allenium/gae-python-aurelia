@@ -5,8 +5,8 @@ export class User{
   constructor(service){
     this.heading = 'New User';
     this.User = {
-      firstName:  undefined,
-      lastName:  undefined,
+      firstName:  '',
+      lastName:  '',
     };
 
     this.service = service;

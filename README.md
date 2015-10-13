@@ -1,5 +1,7 @@
 # GAE + Python + Aurelia!
 
+http://gaepythonaurelia.appspot.com/
+
 This app uses an Google Application Engine, Python and [Aurelia Framework] (http://github.com/aurelia/framework)
 
 ## How to Install
